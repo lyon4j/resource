@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder location="classpath:conf.properties" ignore-unresolvable="true"/>
+	
+	<!--初始化token参数，完成验证操作-->
+	<bean id="serverAction" class="com.lyon4j.controller.ServerAction">
+		<property name="token">
+			<value>${conf.token}</value>
+		</property>
+	</bean>
+	
+	<bean id="configure" class="com.lyon4j.tools.Configure">
+		<property name="accessToken">
+			<value>${conf.accessToken}</value>
+		</property>
+		
+		<property name="imageRealPath">
+			<value>${conf.imageRealPath}</value>
+		</property>
+		
+		<property name="videoRealPath">
+			<value>${conf.videoRealPath}</value>
+		</property>
+	</bean>
+	
+</beans>

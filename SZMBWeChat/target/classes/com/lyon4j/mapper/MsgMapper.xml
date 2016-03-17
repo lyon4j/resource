@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.lyon4j.dao.MsgMapper">
+	<insert id="addMsg" parameterType="com.lyon4j.pojo.MsgRecord">
+		insert into msgrecord values(szmb_wx_seq.nextval,#{openid},sysdate,#{msgType},#{msgContent})
+	</insert>
+</mapper>
